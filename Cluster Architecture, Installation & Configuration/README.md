@@ -310,6 +310,11 @@ Docker	/var/run/dockershim.sock
 containerd	/run/containerd/containerd.sock
 CRI-O	/var/run/crio/crio.sock
 ```
+`systemd`는 init system에 의해서 시작되며 cgroup mangers의 역할을 한다.
+
+참고로 Container Runtime과 Kubelet모두 `cgroupfs`를 사용하도록 설정할 수 있다.
+그러나 이것은 결국 `systemd`와 `cgroupfs`가 동시에 cgroup manager의 역할을 하는 것이다.
+이는 불안정적인 세팅이므로 Container Runtime과 Kubelet모두 `systemd`를 사용하도록 설정하는 것을 권장한다.
 
 
 #### Configuring a cgroup driver
