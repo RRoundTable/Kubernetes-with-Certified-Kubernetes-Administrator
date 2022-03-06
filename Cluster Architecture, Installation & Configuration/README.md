@@ -3,7 +3,7 @@
 
 
 
-# [Use Kubeadm to install a basic cluster](#ref2)
+# [Use Kubeadm to install a basic cluster](#ref1)
 
 이번 글을 `kubeadm`을 활용하여 K8s Cluster를 구축하는 방법에 대해서 다룰 것이다.
 
@@ -25,7 +25,7 @@
 
 ### Installing Kubeadm on Your Host
 
-[install-kubeadm](#ref3)
+[install-kubeadm](#ref2)
 
 #### Requirement
 - Linux Host
@@ -61,7 +61,7 @@ ifconfig -a
 만약 두 개이상의 Network Adpater를 보유하고 있고 Default Route로 서로 통신할 수 없는 경우,
 IP routes를 추가하여 Kubernetes Cluster Address가 적절한 Adatper로 갈 수 있도록 한다.
 
-- [Routing Table](#ref5)
+- [Routing Table](#ref4)
 
 라우터 혹은 네트워크 호스트에 저장되어 있는 데이터테이블.
 물리적 네트워크 주소에 대한 라우트 리스트를 가지고 있으며 거리(매트릭)을 포함하고 있는 경우도 있다.
@@ -92,12 +92,12 @@ default            192.168.0.1        UGScg          en0
 255.255.255.255/32 link#6             UCS            en0      !
 ```
 
-- [Add Route on Linux](#ref4)
+- [Add Route on Linux](#ref3)
 
 
 #### Letting iptables see bridged traffic
 
-- [bridge](#ref6)
+- [bridge](#ref5)
 
 Linux `bridge`는 네트워크 스위치와 유사한 역할을 한다.
 `bridge`는 연결된 인터페이스에 패킷을 포워딩한다.
@@ -122,7 +122,7 @@ sudo sysctl --system
 
 #### Check required ports
 
-[Required Port](#ref7)가 모두 열려있어야한다.
+[Required Port](#ref6)가 모두 열려있어야한다.
 
 ```
 # 해당명령어로 확인
@@ -186,21 +186,20 @@ systemd is a suite of basic building blocks for a Linux system. It provides a sy
 
 ## Reference
 
-<a name="#ref1" href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/"> [1] Using RBAC Authorization [websites] (2022, Feb, 13)</a>
 
-<a name="#ref2" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/"> [2] Creating a cluster with kubeadm [websites] (2022, Feb, 21)</a>
+<a name="#ref1" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/"> [2] Creating a cluster with kubeadm [websites] (2022, Feb, 21)</a>
 
-<a name="#ref3" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"> [3] Installing kubeadm [websites] (2022, Feb, 21)</a>
+<a name="#ref2" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"> [3] Installing kubeadm [websites] (2022, Feb, 21)</a>
 
-<a name="#ref4" href="https://devconnected.com/how-to-add-route-on-linux/#:~:text=The%20easiest%20way%20to%20add,be%20used%20for%20this%20route.&text=By%20default%2C%20if%20you%20don,loopback%20excluded%2C%20will%20be%20selected."> [4] Add Route on Linux[websites] (2022, Feb, 27)</a>
+<a name="#ref3" href="https://devconnected.com/how-to-add-route-on-linux/#:~:text=The%20easiest%20way%20to%20add,be%20used%20for%20this%20route.&text=By%20default%2C%20if%20you%20don,loopback%20excluded%2C%20will%20be%20selected."> [4] Add Route on Linux[websites] (2022, Feb, 27)</a>
 
-<a name="#ref5" href="https://en.wikipedia.org/wiki/Routing_table."> [5] Routing Table[websites] (2022, Feb, 27)</a>
+<a name="#ref4" href="https://en.wikipedia.org/wiki/Routing_table."> [5] Routing Table[websites] (2022, Feb, 27)</a>
 
-<a name="#ref6" href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking#bridge"> [6] Bridge [websites] (2022, Feb, 27)</a>
+<a name="#ref5" href="https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking#bridge"> [6] Bridge [websites] (2022, Feb, 27)</a>
 
-<a name="#ref7" href="https://kubernetes.io/docs/reference/ports-and-protocols/#control-plane"> [7] Ports and Protocols [websites] (2022, Feb, 27)</a>
+<a name="#ref6" href="https://kubernetes.io/docs/reference/ports-and-protocols/#control-plane"> [7] Ports and Protocols [websites] (2022, Feb, 27)</a>
 
-<a name="#ref7" href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/#cgroup-drivers"> [8] Cgroup drivers [websites] (2022, Feb, 27)</a>
+<a name="#ref6" href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/#cgroup-drivers"> [8] Cgroup drivers [websites] (2022, Feb, 27)</a>
 
-<a name="#ref8" href="https://systemd.io/"> [9] systemd [websites] (2022, Feb, 27)</a>
+<a name="#ref7" href="https://systemd.io/"> [9] systemd [websites] (2022, Feb, 27)</a>
 
