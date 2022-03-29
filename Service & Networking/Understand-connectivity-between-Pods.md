@@ -90,7 +90,7 @@ Bridge가 생성될 때 Local Rounting Rule이 생성되기 때문에, `eth0` `1
 이제 다른 호스트를 살펴보자.
 오른쪽 호스트는 `eth0`의 주소가 `10.100.0.3`이고 Default Gateway는 `10.100.0.1`로 왼쪽 호스트와 동일하다.
 마찬가지로 `docker0` Bridge로 연결되어 있으며 Bridge주소는 `172.17.0.2`이다.
-이는 왼쪽 호스트와 동일하며 위의 그림 예시는 의도적으로 안좋은 케이스를 시각화한것이다.
+이는 왼쪽 호스트와 동일하며 위의 그림 예시는 의도적으로 좋은 케이스를 시각화 한 것이고 왼쪽 Bridge 주소랑 다를 수 있다.
 
 하나의 노드는 다른 노드의 Bridge가 어떤 Private Address Space를 할당받았는지 알아야한다.
 이를 위해서 Kubernetes는 두 가지 방법으로 해당구조를 제공한다.
@@ -103,6 +103,12 @@ Bridge가 생성될 때 Local Rounting Rule이 생성되기 때문에, `eth0` `1
 Virtual Network Interface와 Bridge, Routing Rule의 조합을 Overlay Network라 한다.
 위의 이미지르르 보면 `docker0`대신 `cbr0` (Custom Bridge)으로 대체되었으며 Private Address Space를 받았다.
 마찬가지로 `veth0`도 Private Address Space를 할당받은 것을 알 수 있다.
+
+```
+# Default Gateway 확인방법
+route -n
+```
+
 
 # Reference
 
